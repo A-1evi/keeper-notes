@@ -43,9 +43,9 @@ const InputBox = () => {
               setTitle(e.target.value);
             }}
           ></input>
-          <textarea
+          <textarea rows={Math.floor(text.length/45)} cols={10}
             value={text}
-            className="w-full focus:outline-none placeholder-gray-700"
+            className="w-full focus:outline-none placeholder-gray-700 "
             type="text"
             placeholder="take a note.."
             onChange={(e) => {

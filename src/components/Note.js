@@ -34,7 +34,7 @@ const Note = ({ id, title, text }) => {
         </div>
       </div>
       <div className="p-2 my-2">
-        <p className="break-words">{text.substring(0, 200) + ".."}</p>
+        <p className="break-words ">{text.substring(0, 200) + ".."}</p>
       </div>
       <div className="m-2 p-2 " onClick={handleModalOnClick}>
         <i className="fa-solid fa-pen-to-square"></i>
