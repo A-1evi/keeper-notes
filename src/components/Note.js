@@ -18,6 +18,7 @@ const Note = ({ id, title, text }) => {
   };
   const handleModalOnClick = () => {
     dispatch(addNoteData({ id, title, text }));
+    dispatch(deleteNote({id}));
     dispatch(showNoteModal());
   };
   return (
