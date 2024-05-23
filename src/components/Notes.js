@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 const Notes = () => {
   const notes = useSelector(store => store.input.notes)
-  console.log(notes)
   if(!notes) return null
   return (
     <>

@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNote } from "../utils/inputSlice";
 
@@ -13,7 +13,7 @@ const InputBox = () => {
   };
 
   const handleFormSubmit = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     if (title.trim() || text.trim()) {
       dispatch(
         addNote({
@@ -28,30 +28,35 @@ const InputBox = () => {
       setShowInput(false);
     }
   };
+
   return (
-    <div className="mx-auto w-1/2 py-2 my-5 shadow-inner border border-gray-300 rounded-lg ">
+    <div className="mx-auto w-1/2 py-2 my-5 shadow-xl border border-gray-400 rounded-lg ">
       {showInput ? (
-        <form className=" px-2 my-2" onSubmit={handleFormSubmit}>
+        <form className=" px-2 my-2 " onSubmit={handleFormSubmit}>
           <input
+            autoFocus
             value={title}
-            className="block w-full text-lg mb-2 focus:outline-none"
+            className="block w-full text-lg mb-2 focus:outline-none placeholder-gray-700"
             type="text"
             placeholder="Title"
             onChange={(e) => {
               setTitle(e.target.value);
             }}
           ></input>
-          <input
+          <textarea
             value={text}
-            className="w-full focus:outline-none"
+            className="w-full focus:outline-none placeholder-gray-700"
             type="text"
             placeholder="take a note.."
             onChange={(e) => {
               setText(e.target.value);
             }}
-          ></input>
-          <button type="submit" className="hidden">
-            Submit
+          ></textarea>
+          <button
+            type="submit"
+            className="text-black hover:bg-gray-100 p-2 my-2  block"
+          >
+            Close
           </button>
         </form>
       ) : (
